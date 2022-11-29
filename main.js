@@ -5,8 +5,8 @@ let context = canvas.getContext("2d");
 var window_height = window.innerHeight;
 var window_width = window.innerWidth;
 
-var left_beat = new Audio("left_beat.wav");
-var right_beat = new Audio("https://github.com/ulazcano/emdr/blob/main/right_beat.wav");
+var left_beat = new Audio("https://github.com/ulazcano/emdr/raw/main/left_beat.wav");
+var right_beat = new Audio("https://github.com/ulazcano/emdr/raw/main/right_beat.wav");
 canvas.height = window_height;
 canvas.width = window_width;
 
