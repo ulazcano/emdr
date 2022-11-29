@@ -3,8 +3,8 @@
   <body>
     <script type="text/javascript">
       var obj = {
-          message: 'Hello World',
-          displayOutline: false,
+          
+          
   
           maxSize: 6.0,
           speed: 5,
@@ -15,9 +15,7 @@
   
           type: 'three',
   
-          explode: function () {
-            alert('Bang!');
-          },
+
   
           color0: "#ffae23", // CSS string
           color1: [ 0, 128, 255 ], // RGB array
@@ -29,9 +27,6 @@
   
       gui.remember(obj);
   
-      gui.add(obj, 'message');
-      gui.add(obj, 'displayOutline');
-      gui.add(obj, 'explode');
   
       gui.add(obj, 'maxSize').min(-10).max(10).step(0.25);
       gui.add(obj, 'height').step(5); // Increment amount
@@ -42,7 +37,7 @@
       // Choose from named values
       gui.add(obj, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
   
-      var f1 = gui.addFolder('Colors');
+      var f1 = gui.addFolder('Colores');
       f1.addColor(obj, 'color0');
       f1.addColor(obj, 'color1');
       f1.addColor(obj, 'color2');
