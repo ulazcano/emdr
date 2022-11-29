@@ -1,3 +1,8 @@
+//collect data from form
+//let speed_loop_post = document.querySelector("#speed").value;
+//console.log(speed_loop_post);
+
+
 let canvas = document.getElementById("canvas");
 
 let context = canvas.getContext("2d");
