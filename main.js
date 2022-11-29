@@ -62,14 +62,7 @@ class Circle {
 
 let circle_counter = 1;
 
-let my_circle = new Circle(
-  window_width / 2,
-  window_height / 2,
-  50,
-  "black",
-  circle_counter,
-  20
-);
+let my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", circle_counter, 20);
 
 my_circle.draw(context);
 
