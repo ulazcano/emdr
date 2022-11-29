@@ -7,6 +7,8 @@ var window_width = window.innerWidth;
 
 var left_beat = new Audio("https://github.com/ulazcano/emdr/raw/main/left_beat.wav");
 var right_beat = new Audio("https://github.com/ulazcano/emdr/raw/main/right_beat.wav");
+var speed_loop = 20;
+
 canvas.height = window_height;
 canvas.width = window_width;
 
@@ -62,7 +64,7 @@ class Circle {
 
 let circle_counter = 1;
 
-let my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", circle_counter, 20);
+let my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", circle_counter, speed_loop);
 
 my_circle.draw(context);
 
