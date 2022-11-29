@@ -7,7 +7,7 @@ var window_width = window.innerWidth;
 
 var left_beat = new Audio("https://github.com/ulazcano/emdr/raw/main/left_beat.wav");
 var right_beat = new Audio("https://github.com/ulazcano/emdr/raw/main/right_beat.wav");
-var speed_loop = 20;
+var speed_loop = 60;
 
 canvas.height = window_height;
 canvas.width = window_width;
