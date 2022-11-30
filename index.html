@@ -7,9 +7,9 @@
     <script type="text/javascript">
       let stop_update= false;
       var obj = {
-          maxSize: 6.0,
-          speed: 60,
-  
+          speed: 50,
+          //speed: 60,
+
           
           noiseStrength: 10.2,
           growthSpeed: 0.2,
@@ -27,9 +27,9 @@
   
       gui.remember(obj);
 
-  
+      gui.add(obj, 'speed').min(0).max(200).step(1);
       // Choose from named values
-      gui.add(obj, 'speed', { Lento: 20, Medio: 60, Rápido: 100,  } );
+      //gui.add(obj, 'speed', { Lento: 20, Medio: 60, Rápido: 100,  } );
   
       var f1 = gui.addFolder('Colores');
       f1.addColor(obj, 'circulo');

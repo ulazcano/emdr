@@ -1,6 +1,10 @@
 //collect data from form
 //let speed_loop_post = document.querySelector("#speed").value;
 
+
+
+
+
   let canvas = document.getElementById("canvas");
 
   let context = canvas.getContext("2d");
@@ -55,11 +59,15 @@
 
       if (this.xpos + this.radius > window_width) {
         this.dx = -this.dx;
+        left_beat.pause();
+        left_beat.currentTime = 0;
         right_beat.play();
       }
 
       if (this.xpos - this.radius < 0) {
         this.dx = -this.dx;
+        right_beat.pause();
+        right_beat.currentTime = 0;
         left_beat.play();
         // loop_counter++;
       }
