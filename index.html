@@ -1,72 +1,83 @@
 <html>
   <head>
     <script type="text/javascript" src="build/dat.gui.js"></script>
+    
   </head>
   <body>
     <script type="text/javascript">
+      let stop_update= false;
       var obj = {
-          message: 'Hello World',
-          displayOutline: false,
-  
           maxSize: 6.0,
-          speed: 5,
+          speed: 60,
   
-          height: 10,
+          
           noiseStrength: 10.2,
           growthSpeed: 0.2,
   
-          type: 'three',
+          
   
-          explode: function () {
-            alert('Bang!');
-          },
+
   
-          color0: "#ffae23", // CSS string
-          color1: [ 0, 128, 255 ], // RGB array
-          color2: [ 0, 128, 255, 0.3 ], // RGB with alpha
-          color3: { h: 350, s: 0.9, v: 0.3 } // Hue, saturation, value
+          circulo: "#800080", // CSS string
+          fondo: "#000000", // RGB array
+          
       };
   
       var gui = new dat.gui.GUI();
   
       gui.remember(obj);
-  
-      gui.add(obj, 'message');
-      gui.add(obj, 'displayOutline');
-      gui.add(obj, 'explode');
-  
-      gui.add(obj, 'maxSize').min(-10).max(10).step(0.25);
-      gui.add(obj, 'height').step(5); // Increment amount
-  
-      // Choose from accepted values
-      gui.add(obj, 'type', [ 'one', 'two', 'three' ] );
+
   
       // Choose from named values
-      gui.add(obj, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
+      gui.add(obj, 'speed', { Lento: 20, Medio: 60, Rápido: 100,  } );
   
-      var f1 = gui.addFolder('Colors');
-      f1.addColor(obj, 'color0');
-      f1.addColor(obj, 'color1');
-      f1.addColor(obj, 'color2');
-      f1.addColor(obj, 'color3');
+      var f1 = gui.addFolder('Colores');
+      f1.addColor(obj, 'circulo');
+      f1.addColor(obj, 'fondo');
+
   
-      var f2 = gui.addFolder('Another Folder');
-      f2.add(obj, 'noiseStrength');
+
+      
+
+
+
+      count = 1
+
   
-      var f3 = f2.addFolder('Nested Folder');
-      f3.add(obj, 'growthSpeed');
-  
-      obj['Button with a long description'] = function () {
-        console.log('Button with a long description pressed');
-      };
-      gui.add(obj, 'Button with a long description');
+      obj['Iniciar'] =  function iniciar_loop() {        
+        my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", 1, obj.speed);
+        update_switch = true;
+        if (count==1){
+        
+          updateCircle();
+          count = 0;
+        }
+        console.log(context);
+        console.log('EMDR Iniciado');
+        
+      }
+      gui.add(obj, 'Iniciar');
+
+      obj['Detener'] =  function detener_loop() {        
+        update_switch = false;
+        console.log("entro 1")
+        
+        console.log('EMDR Detenido');
+        count = 1
+        
+      }
+      gui.add(obj, 'Detener');
+
+
+
   
     </script>
   
 
 
     <canvas id="canvas"></canvas>
+    <script src="main.js"></script>
   </body>
   
-  <script src="main.js"></script>
+  
 </html>
