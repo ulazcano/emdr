@@ -46,6 +46,7 @@
   
       obj['Iniciar'] =  function iniciar_loop() {        
         my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", 1, obj.speed);
+        canvas.style.background = obj.fondo;
         update_switch = true;
         if (count==1){
         
