@@ -7,7 +7,7 @@
 
   let canvas = document.getElementById("canvas");
 
-  let context = canvas.getContext("2d");
+  let context = canvas.getContext("2d");  
 
   var window_height = window.innerHeight;
   var window_width = window.innerWidth;
@@ -37,15 +37,16 @@
     }
     draw(context) {
       context.beginPath();
-      /*    context.strokeStyle = this.color;
-      context.textAlign = "center";
-      context.textBaseline = "middle";
-      context.font = "20px Arial";
-      context.fillText(this.text, this.xpos, this.ypos);
-      context.lineWidth = 10;*/
+      //context.strokeStyle = this.color;
+      //context.textAlign = "center";
+      //context.textBaseline = "middle";
+      //context.font = "20px Arial";
+      //context.fillText(this.text, this.xpos, this.ypos);
+      
 
       context.arc(this.xpos, this.ypos, this.radius, 0, Math.PI * 2, false);
-      context.stroke();
+      context.fillStyle
+      //context.stroke(); Color contorno
       context.fillStyle = obj.circulo;
       context.fill();
 
@@ -78,9 +79,6 @@
     }
   }
 
-
-
-  console.log(obj.speed)
   let my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", 1, obj.speed);
 
 
@@ -94,58 +92,3 @@
       cancelAnimationFrame(updateCircle);
   }
   }
-
-  
-  // let updateCircle2 = function (cancel_animation) {
-  //   if(cancel_animation==1){
-  //     cancelAnimationFrame(asda);
-  //     console.log("entro en cancel")
-  //     return;}
-  //   var asda =requestAnimationFrame(updateCircle2);
-  //   asda;
-  //   my_circle.update();
-    
-    
-    
-
-  //  }
-  
-
-
-
-    // let updateCircle = function (_switch) {
-    //   if(_switch==0){
-    //   updateCircle2();
-    //   }
-    //   if(_switch>0){
-    //     console.log(my_circle);
-    //     console.log("entro en 1");
-    //     clear_canvas();
-    //     my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", 1, obj.speed);
-    //     javascript_abort();
-    //     alert("x")
-    //     updateCircle2();
-    //     console.log(my_circle);
-    //     }
-    // }
-  
-  
-  // let updateCircle = function (_switch) {
-  //   if(_switch==0){
-  //   updateCircle2();
-  //   }
-  //   if(_switch==1){
-  //     cancel_frame = 1;
-      
-      
-  //     clear_canvas();
-      
-      
-  //     }
-  // }
-
-
-
-  
-
-

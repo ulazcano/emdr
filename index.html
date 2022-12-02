@@ -70,38 +70,38 @@
         background: #eee;
     }
 </style>
+
   </head>
   <body>
+    <audio controls id="bkg_music">
+      <script>
+        var audio = document.getElementById("music");
+        audio.volume = 0.3;
+      </script>  
+      <source src="src/audio/audio1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
     <script type="text/javascript">
       let stop_update= false;
       var obj = {
           speed: 50,
-          //speed: 60,
-
-          
           noiseStrength: 10.2,
           growthSpeed: 0.2,
-  
-          
-  
-
-  
           circulo: "#800080", // CSS string
           fondo: "#000000", // RGB array
-          
       };
-  
+      // Create gui object and set parameters and configurations
       var gui = new dat.gui.GUI();
-  
+      gui.TEXT_OPENED = "hola";
+      
+      gui.useLocalStorage = true;
       gui.remember(obj);
 
-      gui.add(obj, 'speed').min(0).max(200).step(1);
-      // Choose from named values
-      //gui.add(obj, 'speed', { Lento: 20, Medio: 60, Rápido: 100,  } );
+      var velocidad_control = gui.add(obj, 'speed').min(0).max(200).step(1).name("Velocidad");
   
       var f1 = gui.addFolder('Colores');
-      f1.addColor(obj, 'circulo');
-      f1.addColor(obj, 'fondo');
+      gui.addColor(obj, 'circulo').name("Círculo");
+      gui.addColor(obj, 'fondo').name("Fondo");
 
   
 
@@ -111,29 +111,35 @@
 
       count = 1
       
-  
+      var f2 = gui.addFolder('Comandos');
+      
+      
+      
+      var boton_iniciar;
       obj['Iniciar'] =  function iniciar_loop() {        
         my_circle = new Circle(window_width / 2, window_height / 2, 50, "black", 1, obj.speed);
         canvas.style.background = obj.fondo;
         update_switch = true;
+        buttonss = document.getElementById("bkg_music");
+        console.log(buttonss)
+        buttonss.setAttribute("hidden", "");
         if (count==1){
-        
           updateCircle();
           count = 0;
+          boton_iniciar.name("Reiniciar");
         }
-        console.log(context);
-        console.log('EMDR Iniciado');
-        
+        gui.close();
       }
-      gui.add(obj, 'Iniciar');
+      var boton_iniciar = gui.add(obj, 'Iniciar').name("Iniciar");
+
+
       
       obj['Detener'] =  function detener_loop() {        
         update_switch = false;
-        console.log("entro 1")
-        
-        console.log('EMDR Detenido');
         count = 1
-        
+        buttonss = document.getElementById("bkg_music");
+        console.log(buttonss)
+        buttonss.removeAttribute("hidden", "");
       }
       gui.add(obj, 'Detener');
 
@@ -141,6 +147,9 @@
 
   
     </script>
+    
+      
+    
   
 
 
